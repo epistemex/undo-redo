@@ -1,7 +1,7 @@
 ﻿undo-redo
 =========
 
-A simple and powerful undo-redo stack for JavaScript and all-purpose usage.
+A simple, powerful all-purpose undo-redo stack for JavaScript.
 
 
 Features
