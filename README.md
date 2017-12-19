@@ -15,9 +15,9 @@ Features
 - Set optional limit (with FIFO)
 - Get undo/redo status, count and pointer
 - Get or set stack content for storage.
-- [HTML documentation](https://epistemex.github.io/undo-redo/docs/) included in addition to source documentation
+- HTML documentation included in addition to source documentation
 
-See the `demos` directory for example usage (or [this online demo](https://epistemex.github.io/undo-redo/)).
+See the `demos` directory for example usage.
 
 
 Install
@@ -29,6 +29,8 @@ Install
 - Git using HTTPS: `git clone https://github.com/epistemex/undo-redo.git`
 - Git using SSH: `git clone git@github.com:epistemex/undo-redo.git`
 - Download [zip archive](https://github.com/epistemex/undo-redo/archive/master.zip) and extract.
+- [undo-redo.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js)
+- [undo-redo.min.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js)
 
 
 Usage
@@ -48,21 +50,21 @@ To undo call the `undo()` method. Data from the previous state is returned.
 If at beginning of stack `null` will be returned:
 ```javascript
 var data = stack.undo();    // return previous state data
-if (data) /* set data */;
+if (data) { /* set data */ }
 ```
 
 If no `add()` was called since last undo, `redo()` can be called. The data for
 new current state is returned, or `null` if a redo wasn't possible:
 ```javascript
 var data = stack.redo();    // redo and return data for next state if any
-if (data) /* set data */;
+if (data) { /* set data */ }
 ```
 
 For more advanced usage callbacks can be used:
 ```javascript
 var stack = new UndoRedo();
-stack.onundo = function(data) { /* data or null */ };
-stack.onredo = function(data) { /* data or null */ };
+stack.onundo = function(data) { /* data or null */ }
+stack.onredo = function(data) { /* data or null */ }
 //...
 stack.undo();               // invokes callback
 ```
@@ -76,13 +78,12 @@ var stack = new UndoRedo({
 });
 ```
 
-
 License
 -------
 
 Released under [MIT license](http://choosealicense.com/licenses/mit/). You may use this class in both commercial and non-commercial
 projects provided that full header (minified and developer versions) is included.
 
-*&copy; 2015-2016 Epistemex*
+*&copy; 2015-2017 Epistemex*
 
 ![Epistemex](http://i.imgur.com/wZSsyt8.png)

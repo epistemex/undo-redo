@@ -1,6 +1,9 @@
 Change log for undo-redo
 ------------------------
 
+1.2.4
+CHG: Internal formatting - re-release
+
 1.2.3
 REM: initial setting unneeded nulls for callbacks
 DOC: Fixed missing properties/callbacks doc.
