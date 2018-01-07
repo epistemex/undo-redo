@@ -1,7 +1,7 @@
 ﻿undo-redo
 =========
 
-A simple, powerful all-purpose undo-redo stack for JavaScript.
+A simple to use, powerful all-purpose undo-redo stack for JavaScript.
 
 
 Features
@@ -72,10 +72,10 @@ stack.undo();               // invokes callback
 Callbacks can be set via options:
 ```javascript
 var stack = new UndoRedo({
-    limit: 100,             // defaults to -1 = unlimited
-    onUndo: undoCallback,
-    onRedo: redoCallback
-});
+      limit: 100,             // defaults to -1 = unlimited
+      onUndo: undoCallback,
+      onRedo: redoCallback
+    });
 ```
 
 License
@@ -84,6 +84,6 @@ License
 Released under [MIT license](http://choosealicense.com/licenses/mit/). You may use this class in both commercial and non-commercial
 projects provided that full header (minified and developer versions) is included.
 
-*&copy; 2015-2017 Epistemex*
+*&copy; 2015-2018 Epistemex*
 
 ![Epistemex](http://i.imgur.com/wZSsyt8.png)

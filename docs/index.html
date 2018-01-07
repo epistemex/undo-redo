@@ -38,16 +38,18 @@
 			</li>
 			
 		</ul>
-		<div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        
 	</div>
 
 </div>
@@ -84,7 +86,7 @@
 
 
     <section class="readme-section">
-        <article><h1>﻿undo-redo</h1><p>A simple and powerful undo-redo stack for JavaScript and all-purpose usage.</p>
+        <article><h1>﻿undo-redo</h1><p>A simple to use, powerful all-purpose undo-redo stack for JavaScript.</p>
 <h2>Features</h2><ul>
 <li>Lightweight (&lt; 1 kb), efficient and easy to use!</li>
 <li>Add any kind of data to the stack (text, images, canvas data, objects, arrays etc.).</li>
@@ -94,9 +96,9 @@
 <li>Set optional limit (with FIFO)</li>
 <li>Get undo/redo status, count and pointer</li>
 <li>Get or set stack content for storage.</li>
-<li><a href="https://epistemex.github.io/undo-redo/docs/">HTML documentation</a> included in addition to source documentation</li>
+<li>HTML documentation included in addition to source documentation</li>
 </ul>
-<p>See the <code>demos</code> directory for example usage (or <a href="https://epistemex.github.io/undo-redo/">this online demo</a>).</p>
+<p>See the <code>demos</code> directory for example usage.</p>
 <h2>Install</h2><p><strong>undo-redo</strong> can be installed in various ways:</p>
 <ul>
 <li>Bower: <code>bower install undo-redo</code></li>
@@ -104,29 +106,29 @@
 <li>Git using SSH: <code>git clone git@github.com:epistemex/undo-redo.git</code></li>
 <li>Download <a href="https://github.com/epistemex/undo-redo/archive/master.zip">zip archive</a> and extract.</li>
 <li><a href="https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js">undo-redo.js</a></li>
-<li><a href="https://raw.githubusercontent.com/epistemex/undo-redo/master/undo-redo.min.js">undo-redo.min.js</a></li>
+<li><a href="https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js">undo-redo.min.js</a></li>
 </ul>
 <h2>Usage</h2><p>Include script, create an instance:</p>
 <pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo();</code></pre><p>Add some states to the stack:</p>
 <pre class="prettyprint source lang-javascript"><code>stack.add(myCurrentData);   // push data to stack, each add is one undo state</code></pre><p>To undo call the <code>undo()</code> method. Data from the previous state is returned.
 If at beginning of stack <code>null</code> will be returned:</p>
 <pre class="prettyprint source lang-javascript"><code>var data = stack.undo();    // return previous state data
-if (data) /* set data */;</code></pre><p>If no <code>add()</code> was called since last undo, <code>redo()</code> can be called. The data for
+if (data) { /* set data */ }</code></pre><p>If no <code>add()</code> was called since last undo, <code>redo()</code> can be called. The data for
 new current state is returned, or <code>null</code> if a redo wasn't possible:</p>
 <pre class="prettyprint source lang-javascript"><code>var data = stack.redo();    // redo and return data for next state if any
-if (data) /* set data */;</code></pre><p>For more advanced usage callbacks can be used:</p>
+if (data) { /* set data */ }</code></pre><p>For more advanced usage callbacks can be used:</p>
 <pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo();
-stack.onundo = function(data) { /* data or null */ };
-stack.onredo = function(data) { /* data or null */ };
+stack.onundo = function(data) { /* data or null */ }
+stack.onredo = function(data) { /* data or null */ }
 //...
 stack.undo();               // invokes callback</code></pre><p>Callbacks can be set via options:</p>
 <pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo({
-    limit: 100,             // defaults to -1 = unlimited
-    onUndo: undoCallback,
-    onRedo: redoCallback
-});</code></pre><h2>License</h2><p>Released under <a href="http://choosealicense.com/licenses/mit/">MIT license</a>. You may use this class in both commercial and non-commercial
+      limit: 100,             // defaults to -1 = unlimited
+      onUndo: undoCallback,
+      onRedo: redoCallback
+    });</code></pre><h2>License</h2><p>Released under <a href="http://choosealicense.com/licenses/mit/">MIT license</a>. You may use this class in both commercial and non-commercial
 projects provided that full header (minified and developer versions) is included.</p>
-<p><em>&copy; 2015-2016 Epistemex</em></p>
+<p><em>&copy; 2015-2018 Epistemex</em></p>
 <p><img src="http://i.imgur.com/wZSsyt8.png" alt="Epistemex"></p></article>
     </section>
 
@@ -150,20 +152,22 @@ projects provided that full header (minified and developer versions) is included
 </div>
 </div>
 
-<div class="modal fade" id="searchResults">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Search results</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
 
@@ -171,13 +175,13 @@ projects provided that full header (minified and developer versions) is included
 
 
 	<span class="copyright">
-	Copyright &copy; 2015-2016 Epistemex
+	Copyright &copy; 2015-2018 Epistemex
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Wed Aug 3rd 2016
+		on Sat Jan 6th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -185,7 +189,9 @@ projects provided that full header (minified and developer versions) is included
 
 <script src="scripts/docstrap.lib.js"></script>
 <script src="scripts/toc.js"></script>
-<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
 
 <script>
 $( function () {
@@ -195,7 +201,7 @@ $( function () {
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
 
-	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
 		var $this = $( this );
 
 		var example = $this.find( "code" );
@@ -231,8 +237,7 @@ $( function () {
 	} );
 	$( "#toc" ).toc( {
 		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+			return $( heading ).attr( "id" ) || ( prefix + i );
 		},
 		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
 		showAndHide : false,
@@ -258,11 +263,13 @@ $( function () {
 <!--Google Analytics-->
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		SearcherDisplay.init();
-	});
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>

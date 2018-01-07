@@ -1,6 +1,6 @@
 /*!
-	undo-redo 1.2.4
-	(c) Epistemex.com 2015-2017
+	undo-redo 1.2.5
+	(c) Epistemex.com 2015-2018
 	MIT License
 */
 
@@ -23,7 +23,7 @@ function UndoRedo(options) {
 
   options = options || {};
 
-  me.lm = +(options.limit || -1);		// limit
+  me.lm = +(options.limit || -1);   // limit
   me.st = [];                       // stack array
   me.sp = me.cn = 0;                // stack pointer / current index
   me.fs = null;                     // first out
