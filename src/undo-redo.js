@@ -208,5 +208,6 @@ UndoRedo.prototype = {
   }
 };
 
+
 // node support
 if (typeof exports !== "undefined") exports.UndoRedo = UndoRedo;
