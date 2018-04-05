@@ -31,7 +31,7 @@ Install
 - Download [zip archive](https://github.com/epistemex/undo-redo/archive/master.zip) and extract.
 - [undo-redo.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js)
 - [undo-redo.min.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js)
-- For Node.js - NPM: `npm -i -S undo-redo-js`
+- For Node.js - NPM: `npm i -S undo-redo-js`
 
 
 Usage
@@ -79,11 +79,26 @@ var stack = new UndoRedo({
     });
 ```
 
+From Node
+---------
+
+Require the package:
+
+    const UndoRedo = require("undo-redo-js").UndoRedo;
+
+Create a stack:
+
+    let stack = new UndoRedo();
+
+or as a single global instance:
+
+    const stack = new (require("undo-redo-js").UndoRedo)();
+
+
 License
 -------
 
-Released under [MIT license](http://choosealicense.com/licenses/mit/). You may use this class in both commercial and non-commercial
-projects provided that full header (minified and developer versions) is included.
+Released under [MIT license](http://choosealicense.com/licenses/mit/).
 
 *&copy; 2015-2018 Epistemex*
 

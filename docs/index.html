@@ -108,7 +108,7 @@
 <li>Download <a href="https://github.com/epistemex/undo-redo/archive/master.zip">zip archive</a> and extract.</li>
 <li><a href="https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js">undo-redo.js</a></li>
 <li><a href="https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js">undo-redo.min.js</a></li>
-<li>For Node.js - NPM: <code>npm -i -S undo-redo-js</code></li>
+<li>For Node.js - NPM: <code>npm i -S undo-redo-js</code></li>
 </ul>
 <h2>Usage</h2><p>Include script, create an instance:</p>
 <pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo();</code></pre><p>Add some states to the stack:</p>
@@ -128,8 +128,10 @@ stack.undo();               // invokes callback</code></pre><p>Callbacks can be 
       limit: 100,             // defaults to -1 = unlimited
       onUndo: undoCallback,
       onRedo: redoCallback
-    });</code></pre><h2>License</h2><p>Released under <a href="http://choosealicense.com/licenses/mit/">MIT license</a>. You may use this class in both commercial and non-commercial
-projects provided that full header (minified and developer versions) is included.</p>
+    });</code></pre><h2>From Node</h2><p>Require the package:</p>
+<pre class="prettyprint source"><code>const UndoRedo = require(&quot;undo-redo-js&quot;).UndoRedo;</code></pre><p>Create a stack:</p>
+<pre class="prettyprint source"><code>let stack = new UndoRedo();</code></pre><p>or as a single global instance:</p>
+<pre class="prettyprint source"><code>const stack = new (require(&quot;undo-redo-js&quot;).UndoRedo)();</code></pre><h2>License</h2><p>Released under <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
 <p><em>&copy; 2015-2018 Epistemex</em></p>
 <p><img src="http://i.imgur.com/wZSsyt8.png" alt="Epistemex"></p></article>
     </section>
