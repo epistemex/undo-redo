@@ -1,5 +1,5 @@
 /*!
-	undo-redo 1.2.5
+	undo-redo 1.2.6
 	(c) Epistemex.com 2015-2018
 	MIT License
 */
@@ -207,3 +207,6 @@ UndoRedo.prototype = {
     me.sp = +stack.sp;
   }
 };
+
+// node support
+if (typeof exports !== "undefined") exports.UndoRedo = UndoRedo;

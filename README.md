@@ -1,13 +1,14 @@
 ﻿undo-redo
 =========
 
-A simple to use, powerful all-purpose undo-redo stack for JavaScript.
+A simple to use, powerful all-purpose undo-redo stack for JavaScript (browser and Node).
 
 
 Features
 --------
 
 - Lightweight (< 1 kb), efficient and easy to use!
+- Browser + Node support
 - Add any kind of data to the stack (text, images, canvas data, objects, arrays etc.).
 - Single undo() call, returns object for new state
 - Single redo() call, returns object for new state (if possible)
@@ -22,7 +23,6 @@ See the `demos` directory for example usage.
 
 Install
 -------
-
 **undo-redo** can be installed in various ways:
 
 - Bower: `bower install undo-redo`
@@ -31,6 +31,7 @@ Install
 - Download [zip archive](https://github.com/epistemex/undo-redo/archive/master.zip) and extract.
 - [undo-redo.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js)
 - [undo-redo.min.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js)
+- For Node.js - NPM: `npm -i -S undo-redo-js`
 
 
 Usage
