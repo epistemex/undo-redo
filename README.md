@@ -25,13 +25,9 @@ Install
 -------
 **undo-redo** can be installed in various ways:
 
-- Bower: `bower install undo-redo`
-- Git using HTTPS: `git clone https://github.com/epistemex/undo-redo.git`
-- Git using SSH: `git clone git@github.com:epistemex/undo-redo.git`
-- Download [zip archive](https://github.com/epistemex/undo-redo/archive/master.zip) and extract.
-- [undo-redo.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/src/undo-redo.js)
-- [undo-redo.min.js](https://raw.githubusercontent.com/epistemex/undo-redo/master/dist/undo-redo.min.js)
-- For Node.js - NPM: `npm i -S undo-redo-js`
+- Git using HTTPS: `git clone https://gitlab.com/epistemex/undo-redo.git`
+- Git using SSH: `git clone git@gitlab.com:epistemex/undo-redo.git`
+- For Node.js - NPM: `npm i undo-redo-js`
 
 
 Usage
@@ -102,4 +98,4 @@ Released under [MIT license](http://choosealicense.com/licenses/mit/).
 
 *&copy; 2015-2018 Epistemex*
 
-![Epistemex](http://i.imgur.com/wZSsyt8.png)
+![Epistemex](https://i.imgur.com/wZSsyt8.png)
