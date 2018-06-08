@@ -1,6 +1,9 @@
 Change log for undo-redo
 ------------------------
 
+1.2.7
+BPM: Get NPM to update correct readme
+
 1.2.6
 CHG: Moving to GitLab (version bump for NPM)
 
