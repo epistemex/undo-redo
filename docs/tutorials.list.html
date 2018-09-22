@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>UndoRedo Index</title>
+	<title>UndoRedo Tutorials</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,76 +72,95 @@
 		<div id="main">
 			
 
+	<h1 class="page-title">Tutorials</h1>
+<section>
+
+<header>
+    
+        <h2>
+        
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+<dl class="details">
+    
+
 	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
 	
 
 
 
-
-
-
-
-
-
-
-
-	
 	
 
+	
+
+	
+
+	
+</dl>
 
 
+        
+    
+    </div>
 
+    
 
-    <section class="readme-section">
-        <article><h1>﻿undo-redo</h1><p>A simple to use, powerful all-purpose undo-redo stack for JavaScript (browser and Node).</p>
-<h2>Features</h2><ul>
-<li>Lightweight (&lt; 1 kb), efficient and easy to use!</li>
-<li>Browser + Node support</li>
-<li>Add any kind of data to the stack (text, images, canvas data, objects, arrays etc.).</li>
-<li>Data is stored AS-IS for flexibility (simply deep-clone objects beforehand if needed) </li>
-<li>Single undo() call, returns object for new state</li>
-<li>Single redo() call, returns object for new state (if possible)</li>
-<li>Can use callback functions on undo/redo</li>
-<li>Set optional limit (with FIFO)</li>
-<li>Get undo/redo status, count and pointer</li>
-<li>Get or set stack content for storage.</li>
-<li>HTML documentation included in addition to source documentation</li>
-</ul>
-<p>See the <code>demos</code> directory for example usage.</p>
-<h2>Install</h2><p><strong>undo-redo</strong> can be installed in various ways:</p>
-<ul>
-<li>Git using HTTPS: <code>git clone https://gitlab.com/epistemex/undo-redo.git</code></li>
-<li>Git using SSH: <code>git clone git@gitlab.com:epistemex/undo-redo.git</code></li>
-<li>For Node.js - NPM: <code>npm i undo-redo-js</code></li>
-</ul>
-<h2>Usage</h2><p>Include script, create an instance:</p>
-<pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo();</code></pre><p>Add some states to the stack:</p>
-<pre class="prettyprint source lang-javascript"><code>stack.add(myCurrentData);   // push data to stack, each add is one undo state</code></pre><p>To undo call the <code>undo()</code> method. Data from the previous state is returned.
-If at beginning of stack <code>null</code> will be returned:</p>
-<pre class="prettyprint source lang-javascript"><code>var data = stack.undo();    // return previous state data
-if (data) { /* set data */ }</code></pre><p>If no <code>add()</code> was called since last undo, <code>redo()</code> can be called. The data for
-new current state is returned, or <code>null</code> if a redo wasn't possible:</p>
-<pre class="prettyprint source lang-javascript"><code>var data = stack.redo();    // redo and return data for next state if any
-if (data) { /* set data */ }</code></pre><p>For more advanced usage callbacks can be used:</p>
-<pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo();
-stack.onundo = function(data) { /* data or null */ }
-stack.onredo = function(data) { /* data or null */ }
-//...
-stack.undo();               // invokes callback</code></pre><p>Callbacks can be set via options:</p>
-<pre class="prettyprint source lang-javascript"><code>var stack = new UndoRedo({
-      limit: 100,             // defaults to -1 = unlimited
-      onUndo: undoCallback,
-      onRedo: redoCallback
-    });</code></pre><h2>From Node</h2><p>Require the package:</p>
-<pre class="prettyprint source"><code>const UndoRedo = require(&quot;undo-redo-js&quot;).UndoRedo;</code></pre><p>Create a stack:</p>
-<pre class="prettyprint source"><code>let stack = new UndoRedo();</code></pre><p>or as a single global instance:</p>
-<pre class="prettyprint source"><code>const stack = new (require(&quot;undo-redo-js&quot;).UndoRedo)();</code></pre><h2>License</h2><p>Released under <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
-<p><em>&copy; 2015-2018 Epistemex</em></p>
-<p><img src="https://i.imgur.com/wZSsyt8.png" alt="Epistemex"></p></article>
-    </section>
+    
 
+    
+        <h3 class="subsection-title">Classes</h3>
 
+        <dl>
+            <dt><a href="UndoRedo.html">UndoRedo</a></dt>
+            <dd></dd>
+        </dl>
+    
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
