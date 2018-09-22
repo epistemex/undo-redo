@@ -1,5 +1,5 @@
 /*!
-	undo-redo 1.2.7
+	undo-redo 1.2.9
 	(c) Epistemex.com 2015-2018
 	MIT License
 */
@@ -7,18 +7,20 @@
 /**
  * Creates a new undo-redo stack.
  *
+ * Note: data pushed to the stack is stored AS-IS. If you need to store dereferenced objects the object
+ * need to be deep-cloned beforehand, then store the clone instead.
+ *
  * @property {function} [onundo] - Set a function to call back when an undo is performed. The argument given is the data for the state.
  * If undo is not possible it will be called with null as argument, so it can be used to update button states etc.
  * @property {function} [onredo] - Set a function to call back when an redo is performed. The argument given is the data for the state.
  * If redo is not possible, the function will be called with null, so that it can be used to update button states etc.
  * @param {object} [options] - Optional option object (JSON)
  * @param {number} [options.limit=-1] max number of entries. Stack will remove first (oldest) entry when limit is reached. Use -1 for "unlimited" number of entries.
- * @param {function} [options.onUndo] optional callback function for [undo()]{@linkcode UndoRedo#undo}. Can also be set directly with the `onundo` property.
- * @param {function} [options.onRedo] optional callback function for [redo()]{@linkcode UndoRedo#redo}. Can also be set directly with the `onredo` property.
+ * @param {*} [options.onUndo] optional callback function for [undo()]{@linkcode UndoRedo#undo}. Can also be set directly with the `onundo` property.
+ * @param {*} [options.onRedo] optional callback function for [redo()]{@linkcode UndoRedo#redo}. Can also be set directly with the `onredo` property.
  * @constructor
  */
 function UndoRedo(options) {
-
   var me = this;                    // just minimize magic
 
   options = options || {};

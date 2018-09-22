@@ -10,6 +10,7 @@ Features
 - Lightweight (< 1 kb), efficient and easy to use!
 - Browser + Node support
 - Add any kind of data to the stack (text, images, canvas data, objects, arrays etc.).
+- Data is stored AS-IS for flexibility (simply deep-clone objects beforehand if needed) 
 - Single undo() call, returns object for new state
 - Single redo() call, returns object for new state (if possible)
 - Can use callback functions on undo/redo
