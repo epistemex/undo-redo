@@ -1,9 +1,9 @@
 {
   "name": "undo-redo-js",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Versatile multi-purpose undo-redo stack",
   "main": "./dist/undo-redo.min.js",
-   "directories": {
+  "directories": {
     "doc": "docs"
   },
   "scripts": {

@@ -26,8 +26,8 @@ Install
 -------
 **undo-redo** can be installed in various ways:
 
-- Git using HTTPS: `git clone https://gitlab.com/epistemex/undo-redo.git`
-- Git using SSH: `git clone git@gitlab.com:epistemex/undo-redo.git`
+- Git using HTTPS: `git clone https://github.com/epistemex/undo-redo.git`
+- Git using SSH: `git clone git@github.com:epistemex/undo-redo.git`
 - For Node.js - NPM: `npm i undo-redo-js`
 
 
@@ -36,7 +36,7 @@ Usage
 
 Include script, create an instance:
 ```javascript
-var stack = new UndoRedo();
+const stack = new UndoRedo();
 ```
 
 Add some states to the stack:
@@ -47,20 +47,20 @@ stack.add(myCurrentData);   // push data to stack, each add is one undo state
 To undo call the `undo()` method. Data from the previous state is returned.
 If at beginning of stack `null` will be returned:
 ```javascript
-var data = stack.undo();    // return previous state data
-if (data) { /* set data */ }
+let data = stack.undo();    // return previous state data
+if ( data ) { /* set data */ }
 ```
 
 If no `add()` was called since last undo, `redo()` can be called. The data for
 new current state is returned, or `null` if a redo wasn't possible:
 ```javascript
-var data = stack.redo();    // redo and return data for next state if any
-if (data) { /* set data */ }
+let data = stack.redo();    // redo and return data for next state if any
+if ( data ) { /* set data */ }
 ```
 
 For more advanced usage callbacks can be used:
 ```javascript
-var stack = new UndoRedo();
+const stack = new UndoRedo();
 stack.onundo = function(data) { /* data or null */ }
 stack.onredo = function(data) { /* data or null */ }
 //...
@@ -69,8 +69,8 @@ stack.undo();               // invokes callback
 
 Callbacks can be set via options:
 ```javascript
-var stack = new UndoRedo({
-      limit: 100,             // defaults to -1 = unlimited
+const stack = new UndoRedo({
+  limit     : 100,             // defaults to -1 = unlimited
       onUndo: undoCallback,
       onRedo: redoCallback
     });
@@ -85,11 +85,7 @@ Require the package:
 
 Create a stack:
 
-    let stack = new UndoRedo();
-
-or as a single global instance:
-
-    const stack = new (require("undo-redo-js").UndoRedo)();
+    const stack = new UndoRedo();
 
 
 License
@@ -97,6 +93,6 @@ License
 
 Released under [MIT license](http://choosealicense.com/licenses/mit/).
 
-*&copy; 2015-2018 Epistemex*
+*&copy; 2015-2018, 2024 Epistemex*
 
 ![Epistemex](https://i.imgur.com/wZSsyt8.png)
