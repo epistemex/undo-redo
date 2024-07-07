@@ -1,6 +1,6 @@
 /*!
-	undo-redo 1.2.10
-	(c) Epistemex.com 2015-2018
+	undo-redo 1.3.0
+	(c) Epistemex 2015-2018, 2024
 	MIT License
 */
 
@@ -12,7 +12,7 @@
  *
  * @property {function} [onundo] - Set a function to call back when an undo is performed. The argument given is the data for the state.
  * If undo is not possible it will be called with null as argument, so it can be used to update button states etc.
- * @property {function} [onredo] - Set a function to call back when an redo is performed. The argument given is the data for the state.
+ * @property {function} [onredo] - Set a function to call back when a redo is performed. The argument given is the data for the state.
  * If redo is not possible, the function will be called with null, so that it can be used to update button states etc.
  * @param {object} [options] - Optional option object (JSON)
  * @param {number} [options.limit=-1] max number of entries. Stack will remove first (oldest) entry when limit is reached. Use -1 for "unlimited" number of entries.
@@ -21,17 +21,15 @@
  * @constructor
  */
 function UndoRedo(options) {
-  var me = this;                    // just minimize magic
+  options = Object.assign({}, options);
 
-  options = options || {};
+  this.lm = +(options.limit || -1);   // limit
+  this.st = [];                       // stack array
+  this.sp = this.cn = 0;                // stack pointer / current index
+  this.fs = null;                     // first out
 
-  me.lm = +(options.limit || -1);   // limit
-  me.st = [];                       // stack array
-  me.sp = me.cn = 0;                // stack pointer / current index
-  me.fs = null;                     // first out
-
-  me.onundo = options.onUndo;
-  me.onredo = options.onRedo;
+  this.onundo = options.onUndo;
+  this.onredo = options.onRedo;
 }
 
 UndoRedo.prototype = {
@@ -49,23 +47,21 @@ UndoRedo.prototype = {
    */
   add: function(data) {
 
-    var
-      me = this,
-      stack = me.st,
-      pos = me.sp,
-      len = stack.length,
-      limit = me.lm;
+    const stack = this.st;
+    const pos = this.sp;
+    const len = stack.length;
+    const limit = this.lm;
 
-    if (pos < len)
+    if ( pos < len )
       stack.splice(pos, len - pos);
 
-    if (limit > -1 && pos === limit)
-      me.fs = stack.shift();
+    if ( limit > -1 && pos === limit )
+      this.fs = stack.shift();
 
-    me.cn++;
+    this.cn++;
     stack.push(data);
 
-    return me.sp = stack.length
+    return this.sp = stack.length;
   },
 
   /**
@@ -79,17 +75,15 @@ UndoRedo.prototype = {
    */
   undo: function() {
 
-    var
-      me = this,
-      res = null;
+    let res = null;
 
-    if (me.sp) {
-      me.cn--;
-      res = me.st[--me.sp - 1] || me.fs;
+    if ( this.sp ) {
+      this.cn--;
+      res = this.st[ --this.sp - 1 ] || this.fs;
     }
 
-    if (me.onundo) me.onundo(res);
-    return res
+    if ( this.onundo ) this.onundo(res);
+    return res;
   },
 
   /**
@@ -104,17 +98,15 @@ UndoRedo.prototype = {
    */
   redo: function() {
 
-    var
-      me = this,
-      res = null,
-      stack = me.st;
+    const stack = this.st;
+    let res = null;
 
-    if (me.sp < stack.length) {
-      me.cn++;
-      res = stack[me.sp++];
+    if ( this.sp < stack.length ) {
+      this.cn++;
+      res = stack[ this.sp++ ];
     }
 
-    if (me.onredo) me.onredo(res);
+    if ( this.onredo ) this.onredo(res);
     return res;
   },
 
@@ -135,8 +127,8 @@ UndoRedo.prototype = {
    * @returns {boolean}
    */
   canRedo: function() {
-    var len = this.st.length;
-    return len && this.sp < len
+    const len = this.st.length;
+    return len && this.sp < len;
   },
 
   /**
@@ -148,7 +140,7 @@ UndoRedo.prototype = {
    * @returns {number}
    */
   pointer: function() {
-    return this.sp
+    return this.sp;
   },
 
   /**
@@ -160,7 +152,7 @@ UndoRedo.prototype = {
    * @returns {number}
    */
   count: function() {
-    return this.cn
+    return this.cn;
   },
 
   /**
@@ -173,22 +165,21 @@ UndoRedo.prototype = {
    */
   limit: function(limit) {
 
-    var
-      me = this,
-      len = me.st.length;
+    const len = this.st.length;
 
-    if (!limit) return me.lm;
+    if ( !limit ) return this.lm;
 
-    me.lm = limit;
+    this.lm = limit;
 
-    if (len > limit)
-      me.st.splice(limit, len);
+    if ( len > limit ) {
+      this.st.splice(limit, len);
+    }
   },
 
   /**
    * Get or set current stack. If no argument is given a stack object
    * is returned representing current stack. This object can for example
-   * be stored (be sure data stored can be serialized if you intent to
+   * be stored (be sure data stored can be serialized if you intend to
    * use localStorage and similar mechanisms).
    *
    * Note that it references the entries internally.
@@ -198,17 +189,15 @@ UndoRedo.prototype = {
    * @returns {*} If no argument is given, a stack object is returned
    */
   stack: function(stack) {
-    var me = this;
-
-    if (!stack) return {
-      st: me.st.concat(),
-      sp: me.sp
+    if ( !stack ) return {
+      st: this.st.concat(),
+      sp: this.sp
     };
 
-    me.st = stack.st;
-    me.sp = +stack.sp;
+    this.st = stack.st;
+    this.sp = +stack.sp;
   }
 };
 
 // node support
-if (typeof exports !== "undefined") exports.UndoRedo = UndoRedo;
+if ( typeof exports !== 'undefined' ) exports.UndoRedo = UndoRedo;
