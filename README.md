@@ -70,10 +70,10 @@ stack.undo();               // invokes callback
 Callbacks can be set via options:
 ```javascript
 const stack = new UndoRedo({
-  limit     : 100,       // defaults to -1 = unlimited
-  onUndo    : undoCallback,
-      onRedo: redoCallback
-    });
+  limit : 100,       // defaults to -1 = unlimited
+  onUndo: undoCallback,
+  onRedo: redoCallback
+});
 ```
 
 From Node
