@@ -7,10 +7,10 @@ A simple to use, powerful all-purpose undo-redo stack for JavaScript (browser an
 Features
 --------
 
-- Lightweight (< 1 kb), efficient and easy to use!
-- Browser + Node support
+- Lightweight, efficient and easy to use
+- Browser + Nodejs support
 - Add any kind of data to the stack (text, images, canvas data, objects, arrays etc.).
-- Data is stored AS-IS for flexibility (simply deep-clone objects beforehand if needed) 
+- Data is stored AS-IS for flexibility (simply deep-clone objects beforehand if needed)
 - Single undo() call, returns object for new state
 - Single redo() call, returns object for new state (if possible)
 - Can use callback functions on undo/redo
@@ -21,6 +21,9 @@ Features
 
 See the `demos` directory for example usage.
 
+_Help keep the project alive by supporting the developer:_
+
+[![PayPalMe](https://github.com/epistemex/transformation-matrix-js/assets/70324091/04203267-58f0-402b-9589-e2dee6e7c510)](https://paypal.me/KenNil)
 
 Install
 -------
@@ -29,7 +32,6 @@ Install
 - Git using HTTPS: `git clone https://github.com/epistemex/undo-redo.git`
 - Git using SSH: `git clone git@github.com:epistemex/undo-redo.git`
 - For Node.js - NPM: `npm i undo-redo-js`
-
 
 Usage
 -----
